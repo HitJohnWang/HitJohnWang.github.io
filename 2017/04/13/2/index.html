@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Matlab;正则表达式;字符串," />
+  <meta name="keywords" content="Matlab," />
 
 
 
@@ -101,7 +101,7 @@ NPTS=  15195">
 14383980, 7/29/2008, Rancho Cucamonga - Hwy 30 &amp;amp; Amethyst, 360
 ACCELERATION TIME SERIES IN UNITS OF G
 NPTS=  15195">
-<meta property="og:updated_time" content="2017-04-13T15:44:55.071Z">
+<meta property="og:updated_time" content="2017-04-13T15:48:02.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab实现文本中指定字符串的提取">
 <meta name="twitter:description" content="问题：希望在下列文本中提取DT=0.005；需要提取的文本数量较多，格式略有不同。
@@ -349,7 +349,7 @@ NPTS=  15195, DT=   0.005 SEC
   3.8639520E-08 -1.3254099E-07 -2.5086455E-07 -1.2474488E-07  2.5971814E-08
  -3.7663210E-08  5.3381524E-09  1.0722457E-08 -3.4917495E-08  8.3667490E-08`
 </code></pre><a id="more"></a> 
-<h2 id="Maltab实现"><a href="#Maltab实现" class="headerlink" title="# Maltab实现 #"></a><strong># Maltab实现 #</strong></h2><pre><code>`clear
+<h2 id="Maltab实现"><a href="#Maltab实现" class="headerlink" title="# Maltab实现 #"></a><strong># Maltab实现 #</strong></h2><pre><code>clear
 clc
 fid = fopen(&apos;Testhy.txt&apos;);                %当前行指针位置
 tline = fgets(fid);                        %当前行内容
@@ -384,8 +384,8 @@ if rowNow&gt;Row                            %超出设置搜索行数，跳出�
     break
 end
 end
-fclose(fid);`
-</code></pre><h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><pre><code>`while ischar(tline)
+fclose(fid);
+</code></pre><h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><pre><code>while ischar(tline)
      Start=strfind(tline,&apos;DT=&apos;);
     End=strfind(tline,&apos;Sec&apos;)-1;
      if ~isempty(Start) 
@@ -401,8 +401,8 @@ fclose(fid);`
          break
      end
 end
-fclose(fid);`
-</code></pre><h2 id="Test文件"><a href="#Test文件" class="headerlink" title="Test文件"></a><strong>Test文件</strong></h2><p><code>a=5,b=6
+fclose(fid);
+</code></pre><h2 id="Test-txt文件"><a href="#Test-txt文件" class="headerlink" title="Test.txt文件"></a><strong>Test.txt文件</strong></h2><pre><code>a=5,b=6
 c=7,d=8
 b=100 SEc;Dt=a6
 DT=0.666666   Sec b=100
@@ -412,8 +412,8 @@ c=7,d=20
 k=0SEC,a=5 SEC
 a=5,b=6
 c=100,d=8
-k=0SEC,a=5 SEC</code></p>
-<ul>
+k=0SEC,a=5 SEC
+</code></pre><ul>
 <li><strong>转载注明出处！</strong></li>
 </ul>
 
@@ -439,7 +439,7 @@ k=0SEC,a=5 SEC</code></p>
       
         <div class="post-tags">
           
-            <a href="/tags/Matlab-正则表达式-字符串/" rel="tag"># Matlab;正则表达式;字符串</a>
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
           
         </div>
       
@@ -547,7 +547,7 @@ k=0SEC,a=5 SEC</code></p>
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -582,7 +582,7 @@ k=0SEC,a=5 SEC</code></p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maltab实现"><span class="nav-number">2.</span> <span class="nav-text"># Maltab实现 #</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二："><span class="nav-number">3.</span> <span class="nav-text">方法二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test文件"><span class="nav-number">4.</span> <span class="nav-text">Test文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maltab实现"><span class="nav-number">2.</span> <span class="nav-text"># Maltab实现 #</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二："><span class="nav-number">3.</span> <span class="nav-text">方法二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-txt文件"><span class="nav-number">4.</span> <span class="nav-text">Test.txt文件</span></a></li></ol></div>
             
 
           </div>
