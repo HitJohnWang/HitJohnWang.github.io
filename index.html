@@ -240,6 +240,200 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://HitJonhWang.me/2017/04/16/Matlab实现关键字提取并以指定格式输出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488628725093&di=76efeebd45c59458c75fa2fa04281e47&imgtype=0&src=http%3A%2F%2Fgithub.global.ssl.fastly.net%2Fimages%2Fmodules%2Flogos_page%2FGitHub-Mark.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="❤巨蟹草木❤">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/16/Matlab实现关键字提取并以指定格式输出/" itemprop="url">
+                  Matlab实现关键字提取并以指定格式输出
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-16T09:58:40+08:00">
+                2017-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/16/Matlab实现关键字提取并以指定格式输出/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/16/Matlab实现关键字提取并以指定格式输出/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#问题：<br>提取下列文本中以<em>开头，空格作为分隔符的关键字，并在新文本中每行以指定格式&lt;KeyWord name=”</em>AIRBAG_SIMPLE_PRESSURE_VOLUME” /&gt;输出。</p>
+<hr>
+<pre><code>*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_VOLUME_POP *AIRBAG_SIMPLE_AIRBAG_MODEL_POP *AIRBAG_ADIABATIC_GAS_MODEL_POP *AIRBAG_WANG_NEFSKE_POP *AIRBAG_WANG_NEFSKE_JETTING_POP
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_POP *AIRBAG_LOAD_CURVE_POP *AIRBAG_LINEAR_FLUID_POP *AIRBAG_HYBRID_POP *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_POP
+*AIRBAG_SIMPLE_PRESSURE_VOLUME_CM *AIRBAG_SIMPLE_AIRBAG_MODEL_CM *AIRBAG_ADIABATIC_GAS_MODEL_CM *AIRBAG_WANG_NEFSKE_CM *AIRBAG_WANG_NEFSKE_JETTING_CM
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_CM *AIRBAG_LOAD_CURVE_CM *AIRBAG_LINEAR_FLUID_CM *AIRBAG_HYBRID_CM *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_CM
+*AIRBAG_SIMPLE_PRESSURE_VOLUME_ID *AIRBAG_SIMPLE_AIRBAG_MODEL_ID *AIRBAG_ADIABATIC_GAS_MODEL_ID *AIRBAG_WANG_NEFSKE_ID *AIRBAG_WANG_NEFSKE_JETTING_ID
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_ID *AIRBAG_LOAD_CURVE_ID *AIRBAG_LINEAR_FLUID_ID *AIRBAG_HYBRID_ID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_ID
+*AIRBAG_ADVANCED_ALE *AIRBAG_ALE *AIRBAG_INTERACTION *AIRBAG_REFERENCE_GEOMETRY *AIRBAG_REFERENCE_GEOMETRY_BIRTH *AIRBAG_REFERENCE_GEOMETRY_RDT *AIRBAG_REFERENCE_GEOMETRY_BIRTH_RDT
+*AIRBAG_SHELL_REFERENCE_GEOMETRY
+</code></pre><hr>
+<p>#Matlab实现：</p>
+<pre><code>%从文本中读取指定格式的字符串，并输出
+%2017/04/16 by John Wang
+clear
+clc
+fid = fopen(&apos;keywords.uew&apos;);    
+fileID=fopen(&apos;output.txt&apos;,&apos;w&apos;);% w r w+ a
+tline = fgets(fid);
+Row=1;
+EndRow=Inf;
+</code></pre><hr>
+<pre><code>while ischar(tline)
+ % Mehtod 1    
+     expression=&apos;\*/?.*? &apos;;                        %以&apos;*&apos;开始以空格结束的关键字匹配
+     match=regexp(tline,expression,&apos;match&apos;);
+     Length=length(strjoin(match));                %由于最后一个关键字不以空格结尾
+     tline(1:Length)=[];                        %每行最后一各关键字单独提取
+     match{end+1}=tline;
+     match=strtrim(match);                        %裁切字符串的开头和尾部的空格，制表，回车符
+
+     if ~isempty(match)
+         formatSpec=&apos;&lt;keyword name=&quot;%s&quot;&gt;\n&apos;;    %每行指定输出格式
+         fprintf(fileID,formatSpec,match{1:end});
+     end 
+</code></pre><hr>
+<pre><code>% Mehtod 2 
+   expression=&apos;\*&apos;;                            
+   splitStr=regexp(tline,expression,&apos;split&apos;);    %以&apos;*&apos;为标识分离关键字（不包含&apos;*&apos;）
+   splitStr=splitStr(2:end);                    %去掉空cell
+   Length=length(splitStr);    
+   splitStr=strtrim(splitStr);                    %裁切字符串的开头和尾部的空格，制表，回车符
+
+   for i=1:Length
+       splitStr{i}=[&apos;*&apos; splitStr{i}];            %关键字恢复&apos;*&apos;号
+   end
+
+   if ~isempty(splitStr)
+       formatSpec=&apos;&lt;KeyWord name=&quot;%s&quot; /&gt;\n&apos;;
+       fprintf(fileID,formatSpec,splitStr{1:end});
+   end  
+</code></pre><hr>
+<pre><code>    Row=Row+1;                                    %最大行判断，跳出
+    if Row&gt;EndRow
+        break
+    end
+
+    tline = fgets(fid);                            %指针转至下一行
+end
+fclose(fid);
+fclose(fileID);
+</code></pre><hr>
+<p>#输出结果<br>    <keyword name="*AIRBAG_SIMPLE_PRESSURE_VOLUME"><br>    <keyword name="*AIRBAG_SIMPLE_AIRBAG_MODEL"><br>    <keyword name="*AIRBAG_ADIABATIC_GAS_MODEL"><br>    <keyword name="*AIRBAG_WANG_NEFSKE"><br>    <keyword name="*AIRBAG_WANG_NEFSKE_JETTING"><br>    <keyword name="*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING"><br>    <keyword name="*AIRBAG_LOAD_CURVE"><br>    <keyword name="*AIRBAG_LINEAR_FLUID"><br>    <keyword name="*AIRBAG_HYBRID"><br>    ……</keyword></keyword></keyword></keyword></keyword></keyword></keyword></keyword></keyword></p>
+<ul>
+<li><strong>转载注明出处！</strong></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://HitJonhWang.me/2017/04/13/2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -959,7 +1153,7 @@ NPTS=  15195, DT=   0.005 SEC
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

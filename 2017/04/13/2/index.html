@@ -101,7 +101,7 @@ NPTS=  15195">
 14383980, 7/29/2008, Rancho Cucamonga - Hwy 30 &amp;amp; Amethyst, 360
 ACCELERATION TIME SERIES IN UNITS OF G
 NPTS=  15195">
-<meta property="og:updated_time" content="2017-04-13T15:48:02.075Z">
+<meta property="og:updated_time" content="2017-04-16T02:14:23.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab实现文本中指定字符串的提取">
 <meta name="twitter:description" content="问题：希望在下列文本中提取DT=0.005；需要提取的文本数量较多，格式略有不同。
@@ -349,7 +349,9 @@ NPTS=  15195, DT=   0.005 SEC
   3.8639520E-08 -1.3254099E-07 -2.5086455E-07 -1.2474488E-07  2.5971814E-08
  -3.7663210E-08  5.3381524E-09  1.0722457E-08 -3.4917495E-08  8.3667490E-08`
 </code></pre><a id="more"></a> 
-<h2 id="Maltab实现"><a href="#Maltab实现" class="headerlink" title="# Maltab实现 #"></a><strong># Maltab实现 #</strong></h2><pre><code>clear
+<h2 id="Maltab实现"><a href="#Maltab实现" class="headerlink" title="# Maltab实现 #"></a><strong># Maltab实现 #</strong></h2><pre><code>%从文本中读取指定格式的字符串，并输出
+%2017/04/16 by John Wang
+clear
 clc
 fid = fopen(&apos;Testhy.txt&apos;);                %当前行指针位置
 tline = fgets(fid);                        %当前行内容
@@ -462,6 +464,10 @@ k=0SEC,a=5 SEC
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/04/16/Matlab实现关键字提取并以指定格式输出/" rel="prev" title="Matlab实现关键字提取并以指定格式输出">
+                Matlab实现关键字提取并以指定格式输出 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -536,7 +542,7 @@ k=0SEC,a=5 SEC
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
