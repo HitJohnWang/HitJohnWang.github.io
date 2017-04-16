@@ -87,22 +87,28 @@
 
 
 
-<meta name="description" content="问题：提取下列文本中以’‘开头，空格作为分隔符的关键字，并在新文本中每行以指定格式‘&amp;lt;KeyWord name=”AIRBAG_SIMPLE_PRESSURE_VOLUME” /&amp;gt;’输出。
+<meta name="description" content="问题：提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式
+输出。
 
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBA">
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab实现关键字提取并以指定格式输出">
 <meta property="og:url" content="http://HitJonhWang.me/2017/04/16/Matlab实现关键字提取并以指定格式输出/index.html">
 <meta property="og:site_name" content="❤巨蟹草木❤">
-<meta property="og:description" content="问题：提取下列文本中以’‘开头，空格作为分隔符的关键字，并在新文本中每行以指定格式‘&amp;lt;KeyWord name=”AIRBAG_SIMPLE_PRESSURE_VOLUME” /&amp;gt;’输出。
+<meta property="og:description" content="问题：提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式
+输出。
 
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBA">
-<meta property="og:updated_time" content="2017-04-16T02:23:02.163Z">
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_">
+<meta property="og:updated_time" content="2017-04-16T02:25:42.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab实现关键字提取并以指定格式输出">
-<meta name="twitter:description" content="问题：提取下列文本中以’‘开头，空格作为分隔符的关键字，并在新文本中每行以指定格式‘&amp;lt;KeyWord name=”AIRBAG_SIMPLE_PRESSURE_VOLUME” /&amp;gt;’输出。
+<meta name="twitter:description" content="问题：提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式
+输出。
 
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBA">
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_">
 
 
 
@@ -327,7 +333,8 @@
       
 
       
-        <h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><p>提取下列文本中以’<em>‘开头，空格作为分隔符的关键字，并在新文本中每行以指定格式<br>‘&lt;KeyWord name=”</em>AIRBAG_SIMPLE_PRESSURE_VOLUME” /&gt;’输出。</p>
+        <h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><p>提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式</p>
+<p><keyword name="*AIRBAG_SIMPLE_PRESSURE_VOLUME">输出。</keyword></p>
 <hr>
 <pre><code>*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
 *AIRBAG_SIMPLE_PRESSURE_VOLUME_POP *AIRBAG_SIMPLE_AIRBAG_MODEL_POP *AIRBAG_ADIABATIC_GAS_MODEL_POP *AIRBAG_WANG_NEFSKE_POP *AIRBAG_WANG_NEFSKE_JETTING_POP
@@ -385,15 +392,15 @@ end
 fclose(fid);
 fclose(fileID);
 </code></pre><hr>
-<h1 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h1><p><code>&lt;KeyWord name=&quot;*AIRBAG_SIMPLE_PRESSURE_VOLUME&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_SIMPLE_AIRBAG_MODEL&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_ADIABATIC_GAS_MODEL&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_WANG_NEFSKE&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_WANG_NEFSKE_JETTING&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_LOAD_CURVE&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_LINEAR_FLUID&quot; /&gt;
-    &lt;KeyWord name=&quot;*AIRBAG_HYBRID&quot; /&gt;</code><br>    ……</p>
+<h1 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h1><p>`<keyword name="*AIRBAG_SIMPLE_PRESSURE_VOLUME"></keyword></p>
+<p><keyword name="*AIRBAG_SIMPLE_AIRBAG_MODEL"></keyword></p>
+<p><keyword name="*AIRBAG_ADIABATIC_GAS_MODEL"></keyword></p>
+<p><keyword name="*AIRBAG_WANG_NEFSKE"></keyword></p>
+<p><keyword name="*AIRBAG_WANG_NEFSKE_JETTING"></keyword></p>
+<p><keyword name="*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING"></keyword></p>
+<p><keyword name="*AIRBAG_LOAD_CURVE"></keyword></p>
+<p><keyword name="*AIRBAG_LINEAR_FLUID"></keyword></p>
+<p><keyword name="*AIRBAG_HYBRID">`<br>    ……</keyword></p>
 <ul>
 <li><strong>转载注明出处！</strong></li>
 </ul>
