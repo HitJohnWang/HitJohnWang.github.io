@@ -87,22 +87,28 @@
 
 
 
-<meta name="description" content="#问题：提取下列文本中以开头，空格作为分隔符的关键字，并在新文本中每行以指定格式&amp;lt;KeyWord name=”AIRBAG_SIMPLE_PRESSURE_VOLUME” /&amp;gt;输出。
+<meta name="description" content="问题：提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式
+输出。
 
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_H">
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab实现关键字提取并以指定格式输出">
 <meta property="og:url" content="http://HitJonhWang.me/2017/04/16/Matlab实现关键字提取并以指定格式输出/index.html">
 <meta property="og:site_name" content="❤巨蟹草木❤">
-<meta property="og:description" content="#问题：提取下列文本中以开头，空格作为分隔符的关键字，并在新文本中每行以指定格式&amp;lt;KeyWord name=”AIRBAG_SIMPLE_PRESSURE_VOLUME” /&amp;gt;输出。
+<meta property="og:description" content="问题：提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式
+输出。
 
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_H">
-<meta property="og:updated_time" content="2017-04-16T02:16:09.372Z">
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_">
+<meta property="og:updated_time" content="2017-04-16T02:20:58.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab实现关键字提取并以指定格式输出">
-<meta name="twitter:description" content="#问题：提取下列文本中以开头，空格作为分隔符的关键字，并在新文本中每行以指定格式&amp;lt;KeyWord name=”AIRBAG_SIMPLE_PRESSURE_VOLUME” /&amp;gt;输出。
+<meta name="twitter:description" content="问题：提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式
+输出。
 
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_H">
+*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
+*AIRBAG_SIMPLE_PRESSURE_">
 
 
 
@@ -327,20 +333,16 @@
       
 
       
-        <p>#问题：<br>提取下列文本中以<em>开头，空格作为分隔符的关键字，并在新文本中每行以指定格式&lt;KeyWord name=”</em>AIRBAG_SIMPLE_PRESSURE_VOLUME” /&gt;输出。</p>
+        <h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><p>提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式</p>
+<p><keyword name="*AIRBAG_SIMPLE_PRESSURE_VOLUME">输出。</keyword></p>
 <hr>
 <pre><code>*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
 *AIRBAG_SIMPLE_PRESSURE_VOLUME_POP *AIRBAG_SIMPLE_AIRBAG_MODEL_POP *AIRBAG_ADIABATIC_GAS_MODEL_POP *AIRBAG_WANG_NEFSKE_POP *AIRBAG_WANG_NEFSKE_JETTING_POP
 *AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_POP *AIRBAG_LOAD_CURVE_POP *AIRBAG_LINEAR_FLUID_POP *AIRBAG_HYBRID_POP *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_POP
-*AIRBAG_SIMPLE_PRESSURE_VOLUME_CM *AIRBAG_SIMPLE_AIRBAG_MODEL_CM *AIRBAG_ADIABATIC_GAS_MODEL_CM *AIRBAG_WANG_NEFSKE_CM *AIRBAG_WANG_NEFSKE_JETTING_CM
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_CM *AIRBAG_LOAD_CURVE_CM *AIRBAG_LINEAR_FLUID_CM *AIRBAG_HYBRID_CM *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_CM
-*AIRBAG_SIMPLE_PRESSURE_VOLUME_ID *AIRBAG_SIMPLE_AIRBAG_MODEL_ID *AIRBAG_ADIABATIC_GAS_MODEL_ID *AIRBAG_WANG_NEFSKE_ID *AIRBAG_WANG_NEFSKE_JETTING_ID
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_ID *AIRBAG_LOAD_CURVE_ID *AIRBAG_LINEAR_FLUID_ID *AIRBAG_HYBRID_ID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_ID
-*AIRBAG_ADVANCED_ALE *AIRBAG_ALE *AIRBAG_INTERACTION *AIRBAG_REFERENCE_GEOMETRY *AIRBAG_REFERENCE_GEOMETRY_BIRTH *AIRBAG_REFERENCE_GEOMETRY_RDT *AIRBAG_REFERENCE_GEOMETRY_BIRTH_RDT
-*AIRBAG_SHELL_REFERENCE_GEOMETRY
+*AIRBAG_SIMPLE_PRESSURE_VOLUME_CM *AIRBAG_SIMPLE_AIRBAG_MODEL_CM 
 </code></pre><hr>
-<p>#Matlab实现：</p>
-<pre><code>%从文本中读取指定格式的字符串，并输出
+<a id="more"></a> 
+<h1 id="Matlab实现："><a href="#Matlab实现：" class="headerlink" title="Matlab实现："></a>Matlab实现：</h1><pre><code>%从文本中读取指定格式的字符串，并输出
 %2017/04/16 by John Wang
 clear
 clc
@@ -390,7 +392,15 @@ end
 fclose(fid);
 fclose(fileID);
 </code></pre><hr>
-<p>#输出结果<br>    <keyword name="*AIRBAG_SIMPLE_PRESSURE_VOLUME"><br>    <keyword name="*AIRBAG_SIMPLE_AIRBAG_MODEL"><br>    <keyword name="*AIRBAG_ADIABATIC_GAS_MODEL"><br>    <keyword name="*AIRBAG_WANG_NEFSKE"><br>    <keyword name="*AIRBAG_WANG_NEFSKE_JETTING"><br>    <keyword name="*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING"><br>    <keyword name="*AIRBAG_LOAD_CURVE"><br>    <keyword name="*AIRBAG_LINEAR_FLUID"><br>    <keyword name="*AIRBAG_HYBRID"><br>    ……</keyword></keyword></keyword></keyword></keyword></keyword></keyword></keyword></keyword></p>
+<h1 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h1><p><code>&lt;KeyWord name=&quot;*AIRBAG_SIMPLE_PRESSURE_VOLUME&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_SIMPLE_AIRBAG_MODEL&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_ADIABATIC_GAS_MODEL&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_WANG_NEFSKE&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_WANG_NEFSKE_JETTING&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_LOAD_CURVE&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_LINEAR_FLUID&quot; /&gt;
+    &lt;KeyWord name=&quot;*AIRBAG_HYBRID&quot; /&gt;</code><br>    ……</p>
 <ul>
 <li><strong>转载注明出处！</strong></li>
 </ul>
@@ -489,8 +499,17 @@ fclose(fileID);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488628725093&di=76efeebd45c59458c75fa2fa04281e47&imgtype=0&src=http%3A%2F%2Fgithub.global.ssl.fastly.net%2Fimages%2Fmodules%2Flogos_page%2FGitHub-Mark.png"
@@ -541,6 +560,22 @@ fclose(fileID);
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matlab实现："><span class="nav-number">2.</span> <span class="nav-text">Matlab实现：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出结果"><span class="nav-number">3.</span> <span class="nav-text">输出结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

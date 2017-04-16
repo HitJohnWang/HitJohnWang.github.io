@@ -326,76 +326,21 @@
 
       
         
-          
-            <p>#问题：<br>提取下列文本中以<em>开头，空格作为分隔符的关键字，并在新文本中每行以指定格式&lt;KeyWord name=”</em>AIRBAG_SIMPLE_PRESSURE_VOLUME” /&gt;输出。</p>
+          <h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><p>提取下列文本中以*开头，空格作为分隔符的关键字，并在新文本中每行以指定格式</p>
+<p><KeyWord name="*AIRBAG_SIMPLE_PRESSURE_VOLUME" />输出。</p>
 <hr>
 <pre><code>*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING *AIRBAG_LOAD_CURVE *AIRBAG_LINEAR_FLUID *AIRBAG_HYBRID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN
 *AIRBAG_SIMPLE_PRESSURE_VOLUME_POP *AIRBAG_SIMPLE_AIRBAG_MODEL_POP *AIRBAG_ADIABATIC_GAS_MODEL_POP *AIRBAG_WANG_NEFSKE_POP *AIRBAG_WANG_NEFSKE_JETTING_POP
 *AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_POP *AIRBAG_LOAD_CURVE_POP *AIRBAG_LINEAR_FLUID_POP *AIRBAG_HYBRID_POP *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_POP
-*AIRBAG_SIMPLE_PRESSURE_VOLUME_CM *AIRBAG_SIMPLE_AIRBAG_MODEL_CM *AIRBAG_ADIABATIC_GAS_MODEL_CM *AIRBAG_WANG_NEFSKE_CM *AIRBAG_WANG_NEFSKE_JETTING_CM
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_CM *AIRBAG_LOAD_CURVE_CM *AIRBAG_LINEAR_FLUID_CM *AIRBAG_HYBRID_CM *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_CM
-*AIRBAG_SIMPLE_PRESSURE_VOLUME_ID *AIRBAG_SIMPLE_AIRBAG_MODEL_ID *AIRBAG_ADIABATIC_GAS_MODEL_ID *AIRBAG_WANG_NEFSKE_ID *AIRBAG_WANG_NEFSKE_JETTING_ID
-*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING_ID *AIRBAG_LOAD_CURVE_ID *AIRBAG_LINEAR_FLUID_ID *AIRBAG_HYBRID_ID *AIRBAG_HYBRID_JETTING HYBRID_CHEMKIN_ID
-*AIRBAG_ADVANCED_ALE *AIRBAG_ALE *AIRBAG_INTERACTION *AIRBAG_REFERENCE_GEOMETRY *AIRBAG_REFERENCE_GEOMETRY_BIRTH *AIRBAG_REFERENCE_GEOMETRY_RDT *AIRBAG_REFERENCE_GEOMETRY_BIRTH_RDT
-*AIRBAG_SHELL_REFERENCE_GEOMETRY
+*AIRBAG_SIMPLE_PRESSURE_VOLUME_CM *AIRBAG_SIMPLE_AIRBAG_MODEL_CM 
 </code></pre><hr>
-<p>#Matlab实现：</p>
-<pre><code>%从文本中读取指定格式的字符串，并输出
-%2017/04/16 by John Wang
-clear
-clc
-fid = fopen(&apos;keywords.uew&apos;);    
-fileID=fopen(&apos;output.txt&apos;,&apos;w&apos;);% w r w+ a
-tline = fgets(fid);
-Row=1;
-EndRow=Inf;
-</code></pre><hr>
-<pre><code>while ischar(tline)
- % Mehtod 1    
-     expression=&apos;\*/?.*? &apos;;                        %以&apos;*&apos;开始以空格结束的关键字匹配
-     match=regexp(tline,expression,&apos;match&apos;);
-     Length=length(strjoin(match));                %由于最后一个关键字不以空格结尾
-     tline(1:Length)=[];                        %每行最后一各关键字单独提取
-     match{end+1}=tline;
-     match=strtrim(match);                        %裁切字符串的开头和尾部的空格，制表，回车符
-
-     if ~isempty(match)
-         formatSpec=&apos;&lt;keyword name=&quot;%s&quot;&gt;\n&apos;;    %每行指定输出格式
-         fprintf(fileID,formatSpec,match{1:end});
-     end 
-</code></pre><hr>
-<pre><code>% Mehtod 2 
-   expression=&apos;\*&apos;;                            
-   splitStr=regexp(tline,expression,&apos;split&apos;);    %以&apos;*&apos;为标识分离关键字（不包含&apos;*&apos;）
-   splitStr=splitStr(2:end);                    %去掉空cell
-   Length=length(splitStr);    
-   splitStr=strtrim(splitStr);                    %裁切字符串的开头和尾部的空格，制表，回车符
-
-   for i=1:Length
-       splitStr{i}=[&apos;*&apos; splitStr{i}];            %关键字恢复&apos;*&apos;号
-   end
-
-   if ~isempty(splitStr)
-       formatSpec=&apos;&lt;KeyWord name=&quot;%s&quot; /&gt;\n&apos;;
-       fprintf(fileID,formatSpec,splitStr{1:end});
-   end  
-</code></pre><hr>
-<pre><code>    Row=Row+1;                                    %最大行判断，跳出
-    if Row&gt;EndRow
-        break
-    end
-
-    tline = fgets(fid);                            %指针转至下一行
-end
-fclose(fid);
-fclose(fileID);
-</code></pre><hr>
-<p>#输出结果<br>    <keyword name="*AIRBAG_SIMPLE_PRESSURE_VOLUME"><br>    <keyword name="*AIRBAG_SIMPLE_AIRBAG_MODEL"><br>    <keyword name="*AIRBAG_ADIABATIC_GAS_MODEL"><br>    <keyword name="*AIRBAG_WANG_NEFSKE"><br>    <keyword name="*AIRBAG_WANG_NEFSKE_JETTING"><br>    <keyword name="*AIRBAG_WANG_NEFSKE_MULTIPLE_JETTING"><br>    <keyword name="*AIRBAG_LOAD_CURVE"><br>    <keyword name="*AIRBAG_LINEAR_FLUID"><br>    <keyword name="*AIRBAG_HYBRID"><br>    ……</keyword></keyword></keyword></keyword></keyword></keyword></keyword></keyword></keyword></p>
-<ul>
-<li><strong>转载注明出处！</strong></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/16/Matlab实现关键字提取并以指定格式输出/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
